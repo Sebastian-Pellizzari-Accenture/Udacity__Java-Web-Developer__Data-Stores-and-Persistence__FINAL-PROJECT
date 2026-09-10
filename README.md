@@ -1,10 +1,15 @@
 # Critter Chronologer Project Starter
 ## Source
 This project originated from Udacity's [Java Web Developer](https://www.udacity.com/enrollment/nd035) course and was the final project of chapter 4 (Data Stores and Persistence). In the project repository a Critter Chronologer is implemented as a Service application that provides a scheduling interface for a small business that takes care of animals. This Spring Boot project will allow users to create pets, owners, and employees, and then schedule events for employees to provide services for pets.
-
+## Competences
+In this project I have applied the competences taught in this chapter:
+* **Multitier architecture**: how data storage fits into the backend structure of an application and how persistence supports the application layer
+* **Data access layer**: separating business logic from database operations to keep the code organized and maintainable
+* **JPA**: mapping Java objects to relational database tables and managing persistence through object-relational mapping
+* **Data sources**: configuring the application to connect to a database
+* **Persistence without JPA**: understanding alternative ways to interact with a database without relying on JPA abstractions
 ## Getting Started
 ### Dependencies
-
 * [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download) (or Ultimate) recommended 
 * [Java SE Development Kit 8+](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Maven](https://maven.apache.org/download.cgi)

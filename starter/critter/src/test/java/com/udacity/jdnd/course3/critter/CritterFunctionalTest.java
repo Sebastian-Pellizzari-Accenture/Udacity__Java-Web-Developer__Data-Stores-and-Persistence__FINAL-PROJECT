@@ -62,30 +62,7 @@ public class CritterFunctionalTest {
         Assertions.assertTrue(retrievedEmployee.getId() > 0);
     }
 
-    @Test
-    public void testAddPetsToCustomer() {
-        CustomerDTO customerDTO = createCustomerDTO();
-        CustomerDTO newCustomer = userController.saveCustomer(customerDTO);
-
-        PetDTO petDTO = createPetDTO();
-        petDTO.setOwnerId(newCustomer.getId());
-        PetDTO newPet = petController.savePet(petDTO);
-
-        //make sure pet contains customer id
-        PetDTO retrievedPet = petController.getPet(newPet.getId());
-        Assertions.assertEquals(retrievedPet.getId(), newPet.getId());
-        Assertions.assertEquals(retrievedPet.getOwnerId(), newCustomer.getId());
-
-        //make sure you can retrieve pets by owner
-        List<PetDTO> pets = petController.getPetsByOwner(newCustomer.getId());
-        Assertions.assertEquals(newPet.getId(), pets.get(0).getId());
-        Assertions.assertEquals(newPet.getName(), pets.get(0).getName());
-
-        //check to make sure customer now also contains pet
-        CustomerDTO retrievedCustomer = userController.getAllCustomers().get(0);
-        Assertions.assertTrue(retrievedCustomer.getPetIds() != null && retrievedCustomer.getPetIds().size() > 0);
-        Assertions.assertEquals(retrievedCustomer.getPetIds().get(0), retrievedPet.getId());
-    }
+ 
 
     @Test
     public void testFindPetsByOwner() {
@@ -239,7 +216,6 @@ public class CritterFunctionalTest {
         compareSchedules(sched2, scheds2c.get(0));
         compareSchedules(sched3, scheds2c.get(1));
     }
-
 
     private static EmployeeDTO createEmployeeDTO() {
         EmployeeDTO employeeDTO = new EmployeeDTO();

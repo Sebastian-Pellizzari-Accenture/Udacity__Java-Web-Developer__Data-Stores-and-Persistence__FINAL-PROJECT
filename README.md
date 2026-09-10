@@ -1,10 +1,8 @@
 # Critter Chronologer Project Starter
-
-Critter Chronologer a Software as a Service application that provides a scheduling interface for a small business that takes care of animals. This Spring Boot project will allow users to create pets, owners, and employees, and then schedule events for employees to provide services for pets.
-
+## Source
+This project originated from Udacity's [Java Web Developer](https://www.udacity.com/enrollment/nd035) course and was the final project of chapter 4 (Data Stores and Persistence). In the project repository a Critter Chronologer is implemented as a Service application that provides a scheduling interface for a small business that takes care of animals. This Spring Boot project will allow users to create pets, owners, and employees, and then schedule events for employees to provide services for pets.
 
 ## Getting Started
-
 ### Dependencies
 
 * [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download) (or Ultimate) recommended 

@@ -9,6 +9,15 @@ import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.Table;
 
+/**
+ * I have chosen to use the InheritanceType.JOINED where common attributes are
+* stored in the parent table while subclass-specific attributes are stored in 
+* separate tables. 
+* The strategy was chosen to avoid redudancy as the tables wont contain any null 
+* values, but it sacrifices some performance as the tables have to be joined to 
+* get the full picture. However, for this toy-exmple this will not really matter 
+* ...
+ */
 @Entity 
 @Table (name = "person")
 @Inheritance (strategy = InheritanceType.JOINED)

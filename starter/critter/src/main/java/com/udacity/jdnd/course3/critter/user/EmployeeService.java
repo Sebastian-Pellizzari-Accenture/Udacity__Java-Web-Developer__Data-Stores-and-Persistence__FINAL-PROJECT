@@ -7,6 +7,8 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import jakarta.transaction.Transactional;
+
 @Service 
 public class EmployeeService {
     @Autowired 
@@ -24,12 +26,13 @@ public class EmployeeService {
         return employeeRepository.getReferenceById(id);
     }
 
+    @Transactional // multiple database operations
     public void setAvailability(Set<DayOfWeek> daysAvailable, long employeeId) {
         Employee employee = employeeRepository.getReferenceById(employeeId);
         employee.setDaysAvailable(daysAvailable);
         employeeRepository.save(employee);
     }
-
+    
     public List<Employee> findEmployeesForService(EmployeeRequestDTO employeeDTO) {
         List<Employee> result = employeeRepository.findByDaysAvailableContains(employeeDTO.getDate().getDayOfWeek());
         return result.stream()

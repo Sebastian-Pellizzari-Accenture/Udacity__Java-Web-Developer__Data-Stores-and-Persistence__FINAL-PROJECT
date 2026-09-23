@@ -4,10 +4,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.udacity.jdnd.course3.critter.user.Customer;
-import com.udacity.jdnd.course3.critter.user.CustomerService;
-
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,29 +16,27 @@ public class PetController {
     @Autowired 
     PetService petService;
 
-    @Autowired 
-    CustomerService customerService;
-
     private Pet dtoToEntity(PetDTO petDTO){
         Pet pet = new Pet();
         BeanUtils.copyProperties(petDTO, pet);
+        /* 
         Customer customer = customerService.getById(petDTO.getOwnerId());
         pet.setOwner(customer);
+        */
         return pet;
     }
 
     private PetDTO entityToDto(Pet pet){
         PetDTO petDTO = new PetDTO();
         BeanUtils.copyProperties(pet, petDTO);
-        Customer customer = pet.getOwner();
-        petDTO.setOwnerId(customer.getId());
+        petDTO.setOwnerId(pet.getOwner().getId());
         return petDTO;
     }
 
     @PostMapping
     public PetDTO savePet(@RequestBody PetDTO petDTO) {
         Pet pet = dtoToEntity(petDTO);
-        pet = petService.savePet(pet);
+        pet = petService.savePet(pet, petDTO.getOwnerId());
         return entityToDto(pet);
     }
 

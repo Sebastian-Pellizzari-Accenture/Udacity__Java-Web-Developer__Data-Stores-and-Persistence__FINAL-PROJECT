@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.udacity.jdnd.course3.critter.pet.Pet;
 import com.udacity.jdnd.course3.critter.pet.PetRepository;
 
-import jakarta.transaction.Transactional;
 @Service 
 public class ScheduleService {
 

@@ -33,11 +33,14 @@ public class EmployeeService {
         employeeRepository.save(employee);
     }
     
-    public List<Employee> findEmployeesForService(EmployeeRequestDTO employeeDTO) {
-        List<Employee> result = employeeRepository.findByDaysAvailableContains(employeeDTO.getDate().getDayOfWeek());
+    public List<Employee> findEmployeesForService(DayOfWeek requiredDay, Set<EmployeeSkill> requiredSkills) {
+        /*
+        List<Employee> result = employeeRepository.findByDaysAvailableContains(requiredDay);
         return result.stream()
             .filter(employee -> employee.getSkills()
-                .containsAll(employeeDTO.getSkills()))
+                .containsAll(requiredSkills))
             .toList();
+        */
+       return employeeRepository.matchingEmployees(requiredDay, requiredSkills, requiredSkills.size());
     }
 }

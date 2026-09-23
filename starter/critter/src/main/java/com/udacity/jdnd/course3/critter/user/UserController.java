@@ -101,7 +101,10 @@ public class UserController {
 
     @GetMapping("/employee/availability")
     public List<EmployeeDTO> findEmployeesForService(@RequestBody EmployeeRequestDTO employeeDTO) {
-        return employeeService.findEmployeesForService(employeeDTO)
+        DayOfWeek requiredDay = employeeDTO.getDate().getDayOfWeek();
+        Set<EmployeeSkill> requiredSkills = employeeDTO.getSkills();
+
+        return employeeService.findEmployeesForService(requiredDay, requiredSkills)
             .stream()
             .map(this::entityToDto)
             .toList();

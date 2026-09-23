@@ -1,7 +1,42 @@
 # Critter Chronologer Project Starter
 
-Critter Chronologer a Software as a Service application that provides a scheduling interface for a small business that takes care of animals. This Spring Boot project will allow users to create pets, owners, and employees, and then schedule events for employees to provide services for pets.
+In this final Project the Critter Chronologer had to be implemented. Critter Chronologer a Software as a Service application that provides a scheduling interface for a small business that takes care of animals. This Spring Boot project will allow users to create pets, owners, and employees, and then schedule events for employees to provide services for pets.\
+The project description can be found in the [Udacity Java-Web-Developer course](https://learn.udacity.com/nd035) in the Data Stores and Persistence chapter. The starter code was copied from [here](https://github.com/udacity/nd035-c3-data-stores-and-persistence-project-starter).
 
+## Summary of competences
+In this project I have applied the competences taught in the **Data Stores & Persistence** chapter:
+* **Multitier architecture:** understanding how data storage and persistence fit into the structure of a backend application
+* **Data access layer:** separating business logic from database interaction to keep the application organized and maintainable
+* **JPA:** mapping Java objects to relational database tables and managing persistence through object-relational mapping
+* **Data sources:** configuring a Java application to connect to a database
+* **Persistence without JPA:** understanding alternative approaches to working with databases directly
+* **Database interaction:** storing, retrieving, and managing application data in a structured way
+
+## Results
+### Customer Management
+![Adding customers](images/Screenshot+2026-09-22+123118.png)
+![Verifying the added customers](images/Screenshot+2026-09-22+123430.png)
+![Get customer by pet id](images/Screenshot+2026-09-22+123547.png)
+
+### Pet Management
+![Adding pets](images/Screenshot+2026-09-22+123137.png)
+![Verifying the added pets](images/Screenshot+2026-09-22+123450.png)
+![Get pets by owner id (success)](images/Screenshot+2026-09-22+123514.png)
+![Get pets by owner id (fail)](images/Screenshot+2026-09-22+123526.png)
+
+### Employee Management
+![Adding one member of staff](images/Screenshot+2026-09-22+123208.png)
+![Setting the availability of the only employee to those days](images/Screenshot+2026-09-22+123343.png)
+![Get available staff](images/Screenshot+2026-09-22+123613.png)
+
+
+### Scheduling
+![Create a schedule](images/Screenshot+2026-09-22+123722.png)
+![Get schedule by pet id (success)](images/Screenshot+2026-09-22+123746.png)
+![Get schedule by pet id (fail)](images/Screenshot+2026-09-22+123811.png)
+![Get schedule by employee id](images/Screenshot+2026-09-22+123830.png)
+![Get schedule by customer id (success)](images/Screenshot+2026-09-22+123850.png)
+![Get schedule by customer id (fail)](images/Screenshot+2026-09-22+123904.png)
 
 ## Getting Started
 
@@ -10,18 +45,14 @@ Critter Chronologer a Software as a Service application that provides a scheduli
 * [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download) (or Ultimate) recommended 
 * [Java SE Development Kit 8+](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Maven](https://maven.apache.org/download.cgi)
-* [MySQL Server 8](https://dev.mysql.com/downloads/mysql/) (or another standalone SQL instance)
+* [MySQL Server](https://dev.mysql.com/downloads/mysql/) $\longrightarrow$ the DB-connection was implemented to use MySQL
 * [Postman](https://www.getpostman.com/downloads/)
 
 Part of this project involves configuring a Spring application to connect to an external data source. Before beginning this project, you must install a database to connect to. Here are [instructions for installing MySQL 8](https://dev.mysql.com/doc/refman/8.0/en/installing.html).
 
 You should install the Server and Connector/J, but it is also convenient to install the Documentation and Workbench.
 
-Alternately, you may wish to run MySQL in a docker container, using [these instructions](https://hub.docker.com/_/mysql/).
-
 After installing the Server, you will need to create a user that your application will use to perform operations on the server. You should create a user that has all permissions on localhost using the sql command found [here](https://dev.mysql.com/doc/refman/8.0/en/creating-accounts.html).
-
-Another SQL database may be used if desired, but do not use the H2 in-memory database as your primary datasource.
 
 ### Installation
 
@@ -57,7 +88,7 @@ Tests will pass under the following conditions:
 * `testFindEmployeesByServiceAndTime` - **UserController.findEmployeesForService** returns all saved employees that have the requested availability and skills and none that do not
 * `testSchedulePetsForServiceWithEmployee` - **ScheduleController.createSchedule** returns a saved schedule matching the requested activities, pets, employees, and date
 * `testFindScheduleByEntities` - **ScheduleController.getScheduleForEmployee** returns all saved schedules containing that employee. **ScheduleController.getScheduleForPet** returns all saved schedules for that pet. **ScheduleController.getScheduleForCustomer** returns all saved schedules for any pets belonging to that owner.
-
+![](images/passed_unit_tests.png)
 ### Postman
 In addition to the included unit tests, a Postman collection has been provided. 
 

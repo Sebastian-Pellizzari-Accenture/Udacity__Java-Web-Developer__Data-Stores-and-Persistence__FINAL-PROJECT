@@ -29,7 +29,6 @@ In this project I have applied the competences taught in the **Data Stores & Per
 ![Setting the availability of the only employee to those days](images/Screenshot+2026-09-22+123343.png)
 ![Get available staff](images/Screenshot+2026-09-22+123613.png)
 
-
 ### Scheduling
 ![Create a schedule](images/Screenshot+2026-09-22+123722.png)
 ![Get schedule by pet id (success)](images/Screenshot+2026-09-22+123746.png)
